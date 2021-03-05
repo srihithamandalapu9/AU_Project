@@ -26,7 +26,11 @@
     "bootstrap": "^4.6.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.3"
+    "zone.js": "~0.11.3",
+    "@angular/fire": "^6.0.4-canary.9a26fbe",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "angularfire2": "^5.4.2",
+    "firebase": "^8.2.9"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1101.2",
