@@ -1,17 +1,8 @@
 import { SignInService } from './../../sign-in.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {
-  SocialAuthService,
-  GoogleLoginProvider,
-  SocialUser,
-} from 'angularx-social-login';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormControl,
-} from '@angular/forms';
+import { SocialAuthService,GoogleLoginProvider,SocialUser} from 'angularx-social-login';
+import { FormBuilder,FormGroup,Validators,FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -59,7 +50,7 @@ constructor(
       emailId: ['', Validators.required],
       password: ['', Validators.required],
     });
-
+  }
     // this.socialAuthService.authState.subscribe((user) => {
     //   this.socialUser = user;
     //   this.isLoggedin = user != null;
@@ -72,7 +63,7 @@ constructor(
     //   // console.log(this.socialUser.firstName);
     //   // console.log(this.socialUser.lastName);
     // });
-  }
+  
 
   loginWithGoogle(): void {
       this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
