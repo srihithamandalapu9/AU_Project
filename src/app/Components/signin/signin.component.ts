@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { SignInService } from './../../sign-in.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -21,16 +22,20 @@ export class SigninComponent implements OnInit {
 constructor(
     private formBuilder: FormBuilder,
     private socialAuthService: SocialAuthService,
-    http :HttpClient,private signinservice:SignInService
-    
+    http :HttpClient,private signinservice:SignInService,
+   private  router:Router
+    // private myService: MyService
   ) {}
 
   CallSignIn() {
       console.log(typeof(this.userForm.value)); 
+      this.router.navigateByUrl('home');
       this.signinservice.SignInUser(this.userForm.value).subscribe((response)=>{
       console.log(response);
       console.log("User Signed In");
+     
   });
+   
   }
   get emailId(){
     return this.userForm.get("emailId");
@@ -75,6 +80,13 @@ constructor(
         {firstName :this.socialUser.firstName,lastName:this.socialUser.lastName,emailId:this.socialUser.email}
       ]
       console.log(this.Userdata);
+      });
+
+      this.signinservice.SignInUser(this.Userdata).subscribe((response)=>{
+      console.log(response);
+      console.log("User Signed In");
+      this.router.navigateByUrl('home');
+  
 
   });
 }

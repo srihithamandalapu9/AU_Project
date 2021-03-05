@@ -13,15 +13,33 @@ export class SignupComponent implements OnInit {
   
 
   userForm: FormGroup = new FormGroup({
+
     firstName: new FormControl('',Validators.required),
     lastName:new FormControl('',Validators.required),
     password: new FormControl('',Validators.required),
     emailId:new FormControl(' ',Validators.required)
+    
   });
 
   constructor(http:HttpClient,private signupservice: SignUpService,private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  get firstName(){
+    return this.userForm.get("firstName");
+  }
+
+  get lastName(){
+    return this.userForm.get("lastName");
+  }
+
+  get emailId(){
+    return this.userForm.get("emailId");
+  }
+
+  get password(){
+    return this.userForm.get("password");
   }
 
   CallSignUp(){
@@ -30,8 +48,9 @@ export class SignupComponent implements OnInit {
       this.signupservice.SignUpUser(this.userForm.value).subscribe((response)=>{
       console.log(response);
       console.log("User created")
+
     });
-    //this.router.navigateByUrl('/home-page');
+    this.router.navigateByUrl('home');
 
   }
 

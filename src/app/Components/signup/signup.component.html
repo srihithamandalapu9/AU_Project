@@ -40,6 +40,7 @@
         mat-raised-button
         class="btn-block"
         (click)="CallSignUp()"
+        [disabled] = "!emailId!.valid || !firstName!.valid || !lastName!.valid || !password!.valid"
       >
         SignUp
       </button>
