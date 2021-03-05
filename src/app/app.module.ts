@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomePageComponent } from './Components/home-page/home-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, SigninComponent, SignupComponent, HomePageComponent],
@@ -28,6 +29,8 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
     AngularMaterialModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
+    
   ],
   providers: [
     {

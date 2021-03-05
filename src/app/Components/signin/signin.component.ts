@@ -1,4 +1,6 @@
+import { SignInService } from './../../sign-in.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {
   SocialAuthService,
   GoogleLoginProvider,
@@ -24,11 +26,21 @@ export class SigninComponent implements OnInit {
   isLoggedin: boolean = false;
   user!: ' ';
   Userdata!: {};
+  
+constructor(
+    private formBuilder: FormBuilder,
+    private socialAuthService: SocialAuthService,
+    http :HttpClient,private signinservice:SignInService
+    
+  ) {}
 
   CallSignIn() {
-    console.log(typeof(this.userForm.value)); 
+      console.log(typeof(this.userForm.value)); 
+      this.signinservice.SignInUser(this.userForm.value).subscribe((response)=>{
+      console.log(response);
+      console.log("User Signed In");
+  });
   }
-
   get Email(){
     return this.userForm.get("Email");
   }
@@ -36,18 +48,10 @@ export class SigninComponent implements OnInit {
   get Password(){
     return this.userForm.get("Password");
   }
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private socialAuthService: SocialAuthService,
-    
-  ) {}
-
-
   ngOnInit() {
-    this.userForm= new FormGroup({
-    Email: new FormControl('',[Validators.email,Validators.required]),
-    Password: new FormControl('',Validators.required),
+      this.userForm= new FormGroup({
+      Email: new FormControl('',[Validators.email,Validators.required]),
+      Password: new FormControl('',Validators.required),
   });
 
 
@@ -56,24 +60,33 @@ export class SigninComponent implements OnInit {
       password: ['', Validators.required],
     });
 
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin = user != null;
-      console.log(typeof(this.socialUser));
-      this.Userdata = [
-        {firstName :this.socialUser.firstName,lastName:this.socialUser.lastName,Email:this.socialUser.email}
-      ]
-      console.log(typeof(this.Userdata));
-
-      // console.log(this.socialUser.email);
-      // console.log(this.socialUser.firstName);
-      // console.log(this.socialUser.lastName);
-    });
+    // this.socialAuthService.authState.subscribe((user) => {
+    //   this.socialUser = user;
+    //   this.isLoggedin = user != null;
+    //   console.log(typeof(this.socialUser));
+    //   this.Userdata = [
+    //     {firstName :this.socialUser.firstName,lastName:this.socialUser.lastName,Email:this.socialUser.email}
+    //   ]
+    //   console.log(typeof(this.Userdata));
+    //   // console.log(this.socialUser.email);
+    //   // console.log(this.socialUser.firstName);
+    //   // console.log(this.socialUser.lastName);
+    // });
   }
 
   loginWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
+      this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+      this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedin = user != null;
+      console.log(this.socialUser);
+      this.Userdata = [
+        {firstName :this.socialUser.firstName,lastName:this.socialUser.lastName,Email:this.socialUser.email}
+      ]
+      console.log(this.Userdata);
+
+  });
+}
 
   logOut(): void {
     this.socialAuthService.signOut();

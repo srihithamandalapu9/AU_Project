@@ -1,3 +1,5 @@
+import { SignUpService } from './../../sign-up.service';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,14 +19,19 @@ export class SignupComponent implements OnInit {
     Email:new FormControl(' ',Validators.required)
   });
 
-  constructor() { }
+  constructor(http:HttpClient,private signupservice: SignUpService) { }
 
   ngOnInit(): void {
   }
 
   CallSignUp(){
     
-    console.log(this.userForm.value);
+      console.log(this.userForm.value);
+      this.signupservice.SignUpUser(this.userForm.value).subscribe((response)=>{
+      console.log(response);
+      console.log("User created")
+    })
+
   }
 
 }

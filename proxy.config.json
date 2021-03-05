@@ -1,0 +1,10 @@
+{
+    "/AUproject/signin": {
+      "target": "http://localhost:8080/login",
+      "secure": "false"
+    },
+    "/AUproject/signup":{
+        "target":"http://localhost:8080/register",
+        "secure":"false"
+    }
+  }
