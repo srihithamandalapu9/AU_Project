@@ -9,7 +9,7 @@ export class SignInService {
 
   constructor( private http:HttpClient) { }
   SignInUser(user :any):Observable<any>{
-    return this.http.post("/AUProject/signin",JSON.stringify(user));
+    return this.http.post("/Project/login",JSON.stringify(user));
   }
 
   
