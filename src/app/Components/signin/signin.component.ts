@@ -41,22 +41,22 @@ constructor(
       console.log("User Signed In");
   });
   }
-  get Email(){
-    return this.userForm.get("Email");
+  get emailId(){
+    return this.userForm.get("emailId");
   }
 
-  get Password(){
-    return this.userForm.get("Password");
+  get password(){
+    return this.userForm.get("password");
   }
   ngOnInit() {
       this.userForm= new FormGroup({
-      Email: new FormControl('',[Validators.email,Validators.required]),
-      Password: new FormControl('',Validators.required),
+      emailId: new FormControl('',[Validators.email,Validators.required]),
+      password: new FormControl('',Validators.required),
   });
 
 
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      emailId: ['', Validators.required],
       password: ['', Validators.required],
     });
 
@@ -81,7 +81,7 @@ constructor(
       this.isLoggedin = user != null;
       console.log(this.socialUser);
       this.Userdata = [
-        {firstName :this.socialUser.firstName,lastName:this.socialUser.lastName,Email:this.socialUser.email}
+        {firstName :this.socialUser.firstName,lastName:this.socialUser.lastName,emailId:this.socialUser.email}
       ]
       console.log(this.Userdata);
 

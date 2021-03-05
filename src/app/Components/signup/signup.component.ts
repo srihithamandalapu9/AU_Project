@@ -1,8 +1,8 @@
 import { SignUpService } from './../../sign-up.service';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,13 +13,13 @@ export class SignupComponent implements OnInit {
   
 
   userForm: FormGroup = new FormGroup({
-    Firstname: new FormControl('',Validators.required),
-    Lastname:new FormControl('',Validators.required),
-    Password: new FormControl('',Validators.required),
-    Email:new FormControl(' ',Validators.required)
+    firstName: new FormControl('',Validators.required),
+    lastName:new FormControl('',Validators.required),
+    password: new FormControl('',Validators.required),
+    emailId:new FormControl(' ',Validators.required)
   });
 
-  constructor(http:HttpClient,private signupservice: SignUpService) { }
+  constructor(http:HttpClient,private signupservice: SignUpService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +30,8 @@ export class SignupComponent implements OnInit {
       this.signupservice.SignUpUser(this.userForm.value).subscribe((response)=>{
       console.log(response);
       console.log("User created")
-    })
+    });
+    //this.router.navigateByUrl('/home-page');
 
   }
 

@@ -9,20 +9,20 @@
         <input
           type = "email"
           placeholder="Email"
-          formControlName="Email"
+          formControlName="emailId"
           required
         />
         <input
           type="text"
           placeholder="Firstname"
-          formControlName="Firstname"
+          formControlName="firstName"
           required
           
         />
         <input
           type="text"
           placeholder="Lastname"
-          formControlName="Lastname"
+          formControlName="lastName"
           required
         />
         
@@ -30,15 +30,14 @@
           
           type = "password"
           placeholder="Password"
-          formControlName="Password"
+          formControlName="password"
           required
         />
       </mat-card-content>
 
       <mat-card-actions>
       <button
-        mat-stroked-button
-        color="accent"
+        mat-raised-button
         class="btn-block"
         (click)="CallSignUp()"
       >
