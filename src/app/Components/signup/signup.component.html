@@ -1,0 +1,50 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>SignUp</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup] = "userForm">
+      <mat-card-content>
+        <input
+          type = "email"
+          placeholder="Email"
+          formControlName="Email"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Firstname"
+          formControlName="Firstname"
+          required
+          
+        />
+        <input
+          type="text"
+          placeholder="Lastname"
+          formControlName="Lastname"
+          required
+        />
+        
+        <input
+          
+          type = "password"
+          placeholder="Password"
+          formControlName="Password"
+          required
+        />
+      </mat-card-content>
+
+      <mat-card-actions>
+      <button
+        mat-stroked-button
+        color="accent"
+        class="btn-block"
+        (click)="CallSignUp()"
+      >
+        SignUp
+      </button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
