@@ -6,12 +6,48 @@
   width: 200px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+.full-black {
+  background-color: #000000;
+  font-size: 20px;
+  color : #ffffff;
+  padding-left: 25%;
+}
+.half-black {
+  background-color: #202020;
+}
+
+
+.light-black {
+  background-color: #404040;
+}
+
+.text-white {
+  color:  #dedede; 
+}
+
+.buttonStyle {
+  
+  background: #f8e5e5;
+  margin : 10px;
+  border: 3px solid rgb(12, 12, 12);
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  color : #fafafa;
+  width : 85%;
+  box-shadow: 5px 7px 5px #888888;
+}
+
+button:active {
+  background: rgb(70, 69, 69);
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
 }

@@ -35,7 +35,7 @@ import { RootNavComponent } from './Components/root-nav/root-nav.component';
     SigninComponent,
     SignupComponent,
     HomePageComponent,
-    RootNavComponent,
+    RootNavComponent
   ],
   imports: [
     BrowserModule,
