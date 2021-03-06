@@ -3,8 +3,14 @@ import { AngularMaterialModule } from './angular-material.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import {SocialLoginModule,SocialAuthServiceConfig} from 'angularx-social-login';
-import {GoogleLoginProvider,FacebookLoginProvider,} from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './Components/signin/signin.component';
@@ -15,9 +21,22 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { RootNavComponent } from './Components/root-nav/root-nav.component';
 
 @NgModule({
-  declarations: [AppComponent, SigninComponent, SignupComponent, HomePageComponent],
+  declarations: [
+    AppComponent,
+    SigninComponent,
+    SignupComponent,
+    HomePageComponent,
+    RootNavComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +49,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [
     {
