@@ -9,6 +9,6 @@ export class SignUpService {
 
   constructor(private http:HttpClient) { }
   SignUpUser(user:any):Observable<any>{
-    return this.http.post("/Project/registeruser",JSON.stringify(user));
+    return this.http.post("/AUProject/registeruser",JSON.stringify(user));
   }
 }

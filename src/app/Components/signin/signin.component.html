@@ -1,3 +1,32 @@
+<mat-toolbar color="primary" class="app-header">
+
+      <div><a href="#" 
+        target="_blank" 
+        class="positronx"
+        >
+        AccoliteKT
+      </a></div>
+
+  <div class="nav-tool-items">
+
+    <a
+      mat-button mat-raised-button routerLink="/signin"
+      routerLinkActive="active">SignIn</a>
+    <a
+      mat-button
+      mat-raised-button
+      routerLink="/signup"
+      routerLinkActive="active"
+      >SignUp</a
+    >
+  </div>
+</mat-toolbar>
+
+
+<router-outlet>
+
+</router-outlet>
+
 <div class="main-wrapper" fxLayout="column" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
@@ -42,6 +71,7 @@
             color="secondary"
             class="btn-block"
             (click)="CallSignIn()"
+            routerLink="/admin-page"
           >
             Sign-in
           </button>

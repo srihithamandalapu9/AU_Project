@@ -28,13 +28,16 @@ constructor(
   ) {}
 
   CallSignIn() {
+      
       console.log(typeof(this.userForm.value)); 
-      this.router.navigateByUrl('home');
       this.signinservice.SignInUser(this.userForm.value).subscribe((response)=>{
       console.log(response);
       console.log("User Signed In");
-     
+      
+      
   });
+
+  this.router.navigateByUrl('/video-category');
    
   }
   get emailId(){

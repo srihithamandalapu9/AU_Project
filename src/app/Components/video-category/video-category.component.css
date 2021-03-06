@@ -1,0 +1,14 @@
+.back-all {
+    background-color: rgb(81, 83, 81);
+    color : #f8e5e5
+  }
+  .example-card {
+    max-width: 300px;
+    min-width : 150px;
+    margin: 4px;
+    position: flex;
+  }
+
+  .flex-container {
+    flex-wrap: wrap;
+  }

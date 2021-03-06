@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+//import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -42,12 +43,16 @@ export class SignupComponent implements OnInit {
     return this.userForm.get("password");
   }
 
+  // alertSuccess(){
+  //   Swal.fire("Hurray ! You have succesfully created an account");
+  // }
   CallSignUp(){
     
       console.log(this.userForm.value);
       this.signupservice.SignUpUser(this.userForm.value).subscribe((response)=>{
       console.log(response);
       console.log("User created")
+      //this.alertSuccess();
 
     });
     this.router.navigateByUrl('home');

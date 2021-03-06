@@ -15,9 +15,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VideoCategoryComponent } from './Components/video-category/video-category.component';
+import { AdminPageNavComponent } from './Components/admin-page-nav/admin-page-nav.component';
+
 
 @NgModule({
-  declarations: [AppComponent, SigninComponent, SignupComponent, HomePageComponent],
+  declarations: [AppComponent, SigninComponent, SignupComponent, HomePageComponent,VideoCategoryComponent, AdminPageNavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
