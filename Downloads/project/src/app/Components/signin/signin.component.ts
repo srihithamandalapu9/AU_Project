@@ -2,13 +2,15 @@ import { Router } from '@angular/router';
 import { SignInService } from './../../sign-in.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {SocialAuthService,GoogleLoginProvider,SocialUser} from 'angularx-social-login';
+import { SocialAuthService, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   FormControl,
 } from '@angular/forms';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signin',
@@ -29,29 +31,32 @@ export class SigninComponent implements OnInit {
     http: HttpClient,
     private signinservice: SignInService,
     private router: Router // private myService: MyService
-  ) {}
+  ) { }
 
   CallSignIn() {
     console.log(this.userForm.value);
 
     this.signinservice.SignInUser(this.userForm.value).subscribe((response) => {
-      
+
       console.log(response);
       console.log(response.id);
       this.signinservice.emitUserId<Number>(response.id);
-      if(this.userForm.value.emailId === response.emailId && this.userForm.value.password === response.password){
-      this.router.navigateByUrl(`/video-category/${response.id}`);
-    }
+      if (this.userForm.value.emailId === response.emailId && this.userForm.value.password === response.password) {
+        this.router.navigateByUrl(`/video-category/${response.id}`);
+      }
 
-    else if(response.isadmin === "Yes"){
-      this.router.navigateByUrl("admin-page");
-    }
-    else{
-      
-    }
+      else if (response.isadmin === "Yes") {
+        this.router.navigateByUrl("admin-page");
+      }
+      else if(this.isLoggedin){
+        this.router.navigateByUrl(`/video-category/${response.id}`);
+      }
+      else {
+        Swal.fire('Invalid Email or Password !', 'error');
+      }
     });
 
-    
+
   }
   get emailId() {
     return this.userForm.get('emailId');
@@ -71,7 +76,7 @@ export class SigninComponent implements OnInit {
       password: ['', Validators.required],
     });
   }
-  
+
 
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
@@ -94,8 +99,8 @@ export class SigninComponent implements OnInit {
 
     this.signinservice.SignInUser(this.Userdata).subscribe((response) => {
 
-      console.log("User Info",response);
-      
+      console.log("User Info", response);
+
     });
   }
 

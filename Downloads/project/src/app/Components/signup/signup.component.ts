@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -50,6 +51,7 @@ export class SignupComponent implements OnInit {
       console.log("User created")
 
     });
+    Swal.fire('Hurray !,You have succesfully created an account','success');
     this.router.navigateByUrl('/signin');
   }
 
