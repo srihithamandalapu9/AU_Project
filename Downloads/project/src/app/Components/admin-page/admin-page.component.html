@@ -1,0 +1,36 @@
+
+<div class="navbar">
+    <div class = "right">
+        <button (click) = "logout()">Logout</button>
+    </div>
+</div> 
+
+<div class="sidenav">
+  <h2>Accolite</h2>
+  <div class="inner">
+    <div class="clickables">
+      <button (click)="toggleClick()">Category</button>
+      <div *ngIf="!clicked" class="category">
+        <div *ngFor="let category of categoryVideos" class="category-inner">
+          <button (click) = "displayCatVideos(category.categoryId)">
+            {{ category.categoryName }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="clickables" (click) = "displayReportedVideos()">
+      <button>Reported Video</button>
+    </div>
+    <div class="clickables" (click) = "displayReportedComments()">
+      <button>Reported Comments</button>
+    </div>
+    <div class="clickables" (click) = "displayApprovedVideos()">
+        <button>Approved Videos</button>
+      </div>
+    <div class="clickables" >
+      <button>Upload a Video</button>
+    </div>
+  </div>
+</div>
+
+ 

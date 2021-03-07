@@ -6,6 +6,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { RootNavComponent } from './Components/root-nav/root-nav.component';
 import { VideoCategoryComponent } from './Components/video-category/video-category.component';
 import { ViewVideoComponent } from './Components/view-video/view-video.component';
+import { AdminPageComponent } from './Components/admin-page/admin-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'root-nav', component: RootNavComponent },
   { path : 'video-category/:userId', component: VideoCategoryComponent},
-  { path : 'view-video/:videoId/:userId', component: ViewVideoComponent}
+  { path : 'view-video/:videoId/:userId', component: ViewVideoComponent},
+  {path : 'admin-page',component:AdminPageComponent}
 ];
 
 @NgModule({

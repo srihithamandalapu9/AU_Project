@@ -42,7 +42,13 @@ export class SigninComponent implements OnInit {
       if(this.userForm.value.emailId === response.emailId && this.userForm.value.password === response.password){
       this.router.navigateByUrl(`/video-category/${response.id}`);
     }
-      // console.log('User Signed In');
+
+    else if(response.isadmin === "Yes"){
+      this.router.navigateByUrl("admin-page");
+    }
+    else{
+      
+    }
     });
 
     
