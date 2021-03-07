@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="font-weight-bold full-black">Categories</mat-toolbar>
+    <mat-nav-list class="light-black">
+      <div *ngFor="let category_item of category_list">
+        <button
+          class="button-black text-white buttonStyle"
+          (click)="sendCategory(category_item.categoryName)"
+        >
+          <a mat-list-item [routerLink]="['video-category', userId]" >{{
+            category_item.categoryName
+          }}</a>
+        </button>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="half-black">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <!--<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>-->
+        <i class="fa fa-list" aria-hidden="true"></i>
+      </button>
+      <span class="ml-5 half-black"
+        >{{ categoryPresent }} - videos are listed here</span
+      >
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+        Add Video
+      </button>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
