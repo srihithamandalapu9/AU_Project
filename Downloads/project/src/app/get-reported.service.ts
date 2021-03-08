@@ -14,7 +14,7 @@ export class GetReportedService {
   }
 
   getReportedComments():Observable<any>{
-    return this.http.get("http://localhost:8080/reportedComments");
+    return this.http.get("http://localhost:8080/getReportedComments");
   }
 
   getUnApprovedVideos():Observable<any>{

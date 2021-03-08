@@ -41,6 +41,7 @@ export class AdminPageComponent implements OnInit {
    displayReportedComments(){
     this.reported.getReportedComments().subscribe((reportedCommentsData)=>{
       this.reportedComments = reportedCommentsData;
+      console.log(this.reportedComments);
     });
   }
 

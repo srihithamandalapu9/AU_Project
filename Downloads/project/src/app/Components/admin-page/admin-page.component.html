@@ -22,10 +22,13 @@
       <button>Reported Video</button>
     </div>
     <div class="clickables" (click) = "displayReportedComments()">
+        <div *ngFor comments in reportedComments>
+            console.log(comments.firstName)
+        </div> 
       <button>Reported Comments</button>
     </div>
-    <div class="clickables" (click) = "displayApprovedVideos()">
-        <button>Approved Videos</button>
+    <div class="clickables" (click) = "displayUnApprovedVideos()">
+        <button>UnApproved Videos</button>
       </div>
     <div class="clickables" >
       <button>Upload a Video</button>

@@ -30,6 +30,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ViewVideoComponent } from './Components/view-video/view-video.component';
 import { AdminPageComponent } from './Components/admin-page/admin-page.component';
+import { AdminVidsComponent } from './Components/admin-vids/admin-vids.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { AdminPageComponent } from './Components/admin-page/admin-page.component
     RootNavComponent,
     VideoCategoryComponent,
     ViewVideoComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AdminVidsComponent
   ],
   imports: [
     BrowserModule,

@@ -41,13 +41,13 @@ export class SigninComponent implements OnInit {
       console.log(response);
       console.log(response.id);
       this.signinservice.emitUserId<Number>(response.id);
-      if (this.userForm.value.emailId === response.emailId && this.userForm.value.password === response.password) {
+      if (response.isadmin === "Yes") {
+        this.router.navigateByUrl("admin-page");
+      }
+      else if (this.userForm.value.emailId === response.emailId && this.userForm.value.password === response.password) {
         this.router.navigateByUrl(`/video-category/${response.id}`);
       }
 
-      else if (response.isadmin === "Yes") {
-        this.router.navigateByUrl("admin-page");
-      }
       else if(this.isLoggedin){
         this.router.navigateByUrl(`/video-category/${response.id}`);
       }
