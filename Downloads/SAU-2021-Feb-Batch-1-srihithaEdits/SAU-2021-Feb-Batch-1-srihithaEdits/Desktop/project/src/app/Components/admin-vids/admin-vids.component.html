@@ -1,0 +1,92 @@
+
+<div *ngIf = "lengthOfreportedComments == 0">
+  <h2>No reportedComments</h2>
+</div>>
+
+<div>
+
+<div *ngIf="clickedOn === 'recom' && lengthOfreportedComments>0 ">
+  <!-- <h1>ReCom</h1> -->
+ <div class = "Videos" >
+    <div class="flexing">
+      <div *ngFor="let video of reportedComments" class="card example-card back-all">
+        <div class="card-header">
+          <video width="100%" height="100%" controls="controls">
+            <source [src]="video.videoLink" type="video/mp4" />
+            <p>"video.videoLink"</p>
+          </video>
+          <div class="card-title">Video title - {{ video.videoTitle }}</div>
+          <div>Comemnt Description - {{ video.commentDesc }}</div>
+          <!--<button class = "btn btn-success" (click)="videoDisplay()" >open video</button>-->
+          <button class = "btn btn-success" [routerLink]="['/view-video', video.videoId, userId]">open video</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<div *ngIf = "lengthOfreportedVideos == 0">
+  <h2>No reported Videos</h2>
+</div>>
+
+<div>
+
+<div *ngIf="clickedOn === 'revid' && lengthOfreportedVideos>0 ">
+  <!-- <h1>ReCom</h1> -->
+ <div class = "Videos" >
+    <div class="flexing">
+      <div *ngFor="let video of reportedVideos" class="card example-card back-all">
+        <div class="card-header">
+          <video width="100%" height="100%" controls="controls">
+            <source [src]="video.videoLink" type="video/mp4" />
+            <p>"video.videoLink"</p>
+          </video>
+          <div class="card-title">Video title - {{ video.videoTitle }}</div>
+          <div>Video Description - {{ video.videoDesc }}</div>
+          <!--<button class = "btn btn-success" (click)="videoDisplay()" >open video</button>-->
+          <button class = "btn btn-success" [routerLink]="['/view-video', video.videoId, userId]">open video</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div *ngIf = "lengthOfunApprovedVideos == 0">
+  <h2>No reported Videos</h2>
+</div>>
+
+<div>
+
+<div *ngIf="clickedOn === 'upvid' && lengthOfunApprovedVideos>0 ">
+  <!-- <h1>ReCom</h1> -->
+ <div class = "Videos" >
+    <div class="flexing">
+      <div *ngFor="let video of unApprovedVideos" class="card example-card back-all">
+        <div class="card-header">
+          <video width="100%" height="100%" controls="controls">
+            <source [src]="video.videoLink" type="video/mp4" />
+            <p>"video.videoLink"</p>
+          </video>
+          <div class="card-title">Video title - {{ video.videoTitle }}</div>
+          <div>Video Description - {{ video.videoDesc }}</div>
+          <!--<button class = "btn btn-success" (click)="videoDisplay()" >open video</button>-->
+          <button class = "btn btn-success" [routerLink]="['/view-video', video.videoId, userId]">open video</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
