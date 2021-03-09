@@ -28,6 +28,7 @@ export class AdminPageComponent implements OnInit {
   lengthOfreportedComments!:number;
   lengthOfreportedVideos!: number;
   lengthOfunApprovedVideos!:number;
+  clickedView!:number;
 
   constructor(
     private http: HttpClient,
@@ -99,6 +100,8 @@ export class AdminPageComponent implements OnInit {
     this.displayReportedComments();
     this.displayReportedVideos();
     this.displayUnApprovedVideos();
+    
   }
+  
 
 }

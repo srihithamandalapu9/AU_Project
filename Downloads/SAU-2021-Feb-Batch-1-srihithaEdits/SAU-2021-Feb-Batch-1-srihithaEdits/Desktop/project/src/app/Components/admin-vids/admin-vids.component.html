@@ -66,7 +66,7 @@
 
 <div>
 
-<div *ngIf="clickedOn === 'upvid' && lengthOfunApprovedVideos>0 ">
+<div *ngIf="clickedOn === 'unvid' && lengthOfunApprovedVideos>0 ">
   <!-- <h1>ReCom</h1> -->
  <div class = "Videos" >
     <div class="flexing">
@@ -89,4 +89,11 @@
 </div>
 
 
-
+<!-- <div class="center">
+ 
+  <div *ngFor="let category of category_list">
+    <div *ngIf="category.categoryId == clickedView" class="inner-class">
+      <h2>{{ category.categoryName }} Videos </h2>
+    </div>
+  </div>
+</div> -->

@@ -7,6 +7,7 @@ import { GetReportedService } from 'src/app/get-reported.service';
 import { CategoryPassingService } from 'src/app/category-passing.service';
 import { UnApprovedVideos } from '../Model/UnApprovedVideos';
 import { ReportedComments } from '../Model/ReportedComments';
+import { Category } from '../Model/Category';
 
 @Component({
   selector: 'app-admin-vids',
@@ -28,6 +29,8 @@ export class AdminVidsComponent implements OnInit {
   lengthOfreportedVideos!:number;
   @Input()
   lengthOfunApprovedVideos!:number;
+  //@Input()
+  //clickedView!:number;
   
   
   // reportedComStat = [
@@ -52,7 +55,7 @@ export class AdminVidsComponent implements OnInit {
   //     videoTitle: 'Angular',
   //   },
   // ];
-
+  //category_list!: Array<Category>;
   constructor() {}
 
   ngOnInit() {

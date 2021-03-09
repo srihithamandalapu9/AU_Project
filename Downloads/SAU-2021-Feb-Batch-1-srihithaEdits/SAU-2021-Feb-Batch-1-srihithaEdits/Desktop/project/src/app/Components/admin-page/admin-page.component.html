@@ -13,7 +13,7 @@
       <div *ngIf="!clicked" class="category">
         <div *ngIf="!length">
           <div *ngFor="let category of category_list" class="category-inner">
-            <button (click)="displayCatVideos(category.categoryId)">
+            <button (click)="changeCategory(category.categoryId)">
               {{ category.categoryName }}
             </button>
           </div>
@@ -45,4 +45,5 @@
   [lengthOfreportedComments] = "lengthOfreportedComments"
   [lengthOfreportedVideos] = "lengthOfreportedVideos"
   [lengthOfunApprovedVideos] = "lengthOfunApprovedVideos"
+  [clickedView] = "clickedView"]
 ></app-admin-vids>
